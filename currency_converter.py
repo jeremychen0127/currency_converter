@@ -21,6 +21,7 @@ args = arg_parser.parse_args()
 # requests the rates on given date
 date = 'latest'
 url = 'http://api.fixer.io/'
+url_params = ''
 if (args.date):
   month = args.date[1].zfill(2)
   day = args.date[2].zfill(2)
@@ -28,12 +29,23 @@ if (args.date):
 
 url += date
 
-# change base currency
+# changes base currency
 if (args.base):
-  url += '?base=' + args.base
+  url_params += 'base=' + args.base
 else:
-  url += '?base=USD'
+  url_params += 'base=USD'
 
+# only shows specified currencies
+if (args.show):
+  currencies_to_show = args.show
+  url_params += '&symbols=' + currencies_to_show[0]
+  for cur in currencies_to_show[1:]:
+    url_params += ',' + cur
+
+# forms the final url for api call
+url += '?' + url_params
+
+# api call and convert json to python objects
 request = requests.get(url)
 rates_json = request.json()
 rates_json_string = json.dumps(rates_json)
