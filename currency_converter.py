@@ -50,4 +50,6 @@ request = requests.get(url)
 rates_json = request.json()
 rates_json_string = json.dumps(rates_json)
 rates = json.loads(rates_json_string)
-print rates
+
+for cur, rate in rates['rates'].iteritems():
+  print cur + ': ' + str(rate)
