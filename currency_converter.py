@@ -51,5 +51,13 @@ rates_json = request.json()
 rates_json_string = json.dumps(rates_json)
 rates = json.loads(rates_json_string)
 
+# prints date of the rate
+print 'Date of Rates: ' + rates['date'] + '\n'
+
+# prints currency base and amount
+print rates['base'] + ': 1'
+print '---------------------------'
+
+# prints the rates
 for cur, rate in rates['rates'].iteritems():
   print cur + ': ' + str(rate)
