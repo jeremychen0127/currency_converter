@@ -15,11 +15,11 @@ helps['convert'] = 'convert one currency to another'
 helps['all-currencies'] = 'show all kinds of supported currencies'
 convert_metavar = ('AMOUNT', 'CURRENCY_FROM', 'CURRENCY_TO')
 date_metavar = ('YEAR', 'MONTH', 'DAY')
+arg_parser.add_argument('--all-currencies', action='store_true', help=helps['all-currencies'])
 arg_parser.add_argument('-d', '--date', help=helps['date'], nargs=3, metavar=date_metavar)
 arg_parser.add_argument('-b', '--base', help=helps['base'], metavar='CURRENCY')
 arg_parser.add_argument('-s', '--show', help=helps['show'], nargs='+', metavar='CURRENCY')
 arg_parser.add_argument('-c', '--convert', help=helps['convert'], nargs=3, metavar=convert_metavar)
-arg_parser.add_argument('--all-currencies', action='store_true', help=helps['all-currencies'])
 args = arg_parser.parse_args()
 
 # variable initializations
