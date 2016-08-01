@@ -4,18 +4,22 @@ import argparse
 import requests
 import json
 
+from currencies import CURRENCIES
+
 arg_parser = argparse.ArgumentParser()
 helps = {}
 helps['date'] = 'the date of the rates occurred'
 helps['base'] = 'the base currency'
 helps['show'] = 'only show specified currencies'
 helps['convert'] = 'convert one currency to another'
+helps['all-currencies'] = 'show all kinds of supported currencies'
 convert_metavar = ('AMOUNT', 'CURRENCY_FROM', 'CURRENCY_TO')
 date_metavar = ('YEAR', 'MONTH', 'DAY')
 arg_parser.add_argument('-d', '--date', help=helps['date'], nargs=3, metavar=date_metavar)
 arg_parser.add_argument('-b', '--base', help=helps['base'], metavar='CURRENCY')
 arg_parser.add_argument('-s', '--show', help=helps['show'], nargs='+', metavar='CURRENCY')
 arg_parser.add_argument('-c', '--convert', help=helps['convert'], nargs=3, metavar=convert_metavar)
+arg_parser.add_argument('--all-currencies', action='store_true', help=helps['all-currencies'])
 args = arg_parser.parse_args()
 
 # variable initializations
@@ -60,13 +64,19 @@ rates_json = request.json()
 rates_json_string = json.dumps(rates_json)
 rates = json.loads(rates_json_string)
 
-# prints date of the rate
-print 'Date of Rates: ' + rates['date'] + '\n'
-
-# prints currency base and amount
-print rates['base'] + ': ' + amount
-print '---------------------------'
-
-# prints the rates
-for cur, rate in rates['rates'].iteritems():
-  print cur + ': ' + str(rate * float(amount))
+if (args.all_currencies):
+  print 'The following are the supported currencies: '
+  print '-----------------------------------------------'
+  for abbr, name in CURRENCIES.iteritems():
+    print abbr + ': ' + name
+else:
+  # prints date of the rate
+  print 'Date of Rates: ' + rates['date'] + '\n'
+  
+  # prints currency base and amount
+  print rates['base'] + ': ' + amount
+  print '---------------------------'
+  
+  # prints the rates
+  for cur, rate in rates['rates'].iteritems():
+    print cur + ': ' + str(rate * float(amount))
