@@ -1,5 +1,5 @@
 Source: currates
-Section: python
+Section: utils
 Priority: optional
 Maintainer: Jeremy Chen, <jeremychen0127@gmail.com>
 Build-Depends: debhelper (>= 7),
@@ -10,5 +10,5 @@ X-Python-Version: >= 2.6
 
 Package: currates
 Architecture: all
-Section: python
+Section: utils
 Description: Simple currency converter
