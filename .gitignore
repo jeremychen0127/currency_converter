@@ -3,6 +3,4 @@
 *.build
 *.tar.gz
 *.changes
-*.spec
-dist/
-build/
+debian/
