@@ -1,3 +1,9 @@
+currates (1.1.1) trusty; urgency=low
+
+  * Installed executable to /usr/bin
+
+ -- Jeremy Chen <jeremychen0127@gmail.com>  Mon, 01 Aug 2016 12:20:46 -0400
+
 currates (1.1) trusty; urgency=low
 
   * Fixed executable
