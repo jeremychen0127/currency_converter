@@ -1,0 +1,11 @@
+currates (1.1) trusty; urgency=low
+
+  * Fixed executable
+
+ -- Jeremy Chen <jeremychen0127@gmail.com>  Mon, 01 Aug 2016 11:46:18 -0400
+
+currates (1.0) trusty; urgency=low
+
+  * Initial release. 
+
+ -- Jeremy Chen <jeremychen0127@gmail.com>  Mon, 01 Aug 2016 02:22:03 -0400
