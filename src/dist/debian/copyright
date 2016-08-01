@@ -1,6 +1,0 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: currates
-Upstream-Contact: Jeremy Chen, <jeremychen0127@gmail.com>
-
-Files: *
-Copyright: 2016, Jeremy Chen, <jeremychen0127@gmail.com>
